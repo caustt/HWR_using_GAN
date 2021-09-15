@@ -1,8 +1,8 @@
 import torch
 import torch.nn as nn
-from load_data import vocab_size, IMG_WIDTH, OUTPUT_MAX_LEN
-from modules_tro import GenModel_FC, DisModel, WriterClaModel, RecModel, write_image
-from loss_tro import recon_criterion, crit, log_softmax
+from .load_data import vocab_size, IMG_WIDTH, OUTPUT_MAX_LEN
+from .modules_tro import GenModel_FC, DisModel, WriterClaModel, RecModel, write_image
+from .loss_tro import recon_criterion, crit, log_softmax
 import numpy as np
 
 w_dis = 1.

@@ -1,7 +1,0 @@
-Tue Jun 15 12:40:38 2021
-Loading save_weights/seq2seq-45.model
-epoch: 45 test_loss: 43.38080453872681
-epoch: 46 train_loss: 21.86639572325207
-epoch: 46 test_loss: 6.24987930059433
-epoch: 47 train_loss: 11.08675517733135
-epoch: 47 test_loss: 5.749497327208519

@@ -3,7 +3,7 @@ from torch import nn
 #from torch.autograd import Variable
 import random
 
-print_shape_flag = True
+print_shape_flag = False
 
 cpu = torch.device('cpu')
 cuda = torch.device('cuda')

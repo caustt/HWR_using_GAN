@@ -4,7 +4,7 @@ import torch
 from torch.nn.utils.rnn import pack_padded_sequence, pad_packed_sequence
 import numpy as np
 #from models.vgg_tro_channel1 import vgg16_bn
-from recognizer.models.vgg_tro_channel3 import vgg16_bn, vgg19_bn
+from GAN.recognizer.models.vgg_tro_channel3 import vgg16_bn, vgg19_bn
 
 #torch.cuda.set_device(1)
 cuda = torch.device('cuda')

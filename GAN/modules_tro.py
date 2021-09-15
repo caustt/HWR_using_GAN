@@ -2,13 +2,13 @@ import numpy as np
 import os
 import torch
 from torch import nn
-from blocks import LinearBlock, Conv2dBlock, ResBlocks, ActFirstResBlock
-from vgg_tro_channel3_modi import vgg19_bn
-from recognizer.models.encoder_vgg import Encoder as rec_encoder
-from recognizer.models.decoder import Decoder as rec_decoder
-from recognizer.models.seq2seq import Seq2Seq as rec_seq2seq
-from recognizer.models.attention import locationAttention as rec_attention
-from load_data import OUTPUT_MAX_LEN, IMG_HEIGHT, IMG_WIDTH, vocab_size, index2letter, num_tokens, tokens
+from .blocks import LinearBlock, Conv2dBlock, ResBlocks, ActFirstResBlock
+from .vgg_tro_channel3_modi import vgg19_bn
+from .recognizer.models.encoder_vgg import Encoder as rec_encoder
+from .recognizer.models.decoder import Decoder as rec_decoder
+from .recognizer.models.seq2seq import Seq2Seq as rec_seq2seq
+from .recognizer.models.attention import locationAttention as rec_attention
+from .load_data import OUTPUT_MAX_LEN, IMG_HEIGHT, IMG_WIDTH, vocab_size, index2letter, num_tokens, tokens
 import cv2
 
 gpu = torch.device('cuda')

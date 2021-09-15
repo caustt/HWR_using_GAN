@@ -1,6 +1,6 @@
 import torch
 import Levenshtein as Lev
-from load_data import vocab_size, tokens, num_tokens, index2letter
+from .load_data import vocab_size, tokens, num_tokens, index2letter
 
 def recon_criterion(predict, target):
     return torch.mean(torch.abs(predict - target))

@@ -1,0 +1,14 @@
+# set path to IAM words directory
+iam_words: /home/padl21t1/data_folder/words/
+# set path to HWR model
+hwr_default_model: pretrained_models/hwr/seq2seq-45.model
+# set path to GAN Model
+gan_default_model: pretrained_models/gan/contran-4150.model
+number_training_epochs: 1
+iam_writer_mappings: data/img_writer_mapping.txt
+text_corpus: GAN/corpora_english/brown-azAZ.tr
+result_paths:
+  model_weights: model_weights/
+  synthesized_images: synthesized_images/
+  labels_path: label_files/
+  evaluations: evaluations/
