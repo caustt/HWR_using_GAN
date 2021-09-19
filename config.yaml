@@ -1,5 +1,5 @@
 # set path to IAM words directory
-iam_words: /home/padl21t1/data_folder/words/
+iam_words: location/to/IAM/words/directory
 # set path to HWR model
 hwr_default_model: pretrained_models/hwr/seq2seq-45.model
 # set path to GAN Model

@@ -73,16 +73,18 @@ def test(test_loader, seq2seq, prediction_log_file):
 
 
 def train_with_synth_imgs(run_or_writer_id, labels_file, image_folder, iam=False):
-    train_loader = get_data_loader(labels_file, image_folder, )
+    train_loader = get_data_loader(labels_file, image_folder)
     seq2seq = init_s2s_model()
     opt = optim.Adam(seq2seq.parameters(), lr=learning_rate)
     scheduler = optim.lr_scheduler.MultiStepLR(opt, milestones=lr_milestone, gamma=lr_gamma)
 
     for epoch in range(EPOCH):
         if iam:
-            train_loss = train(train_loader, seq2seq, opt, Path(config['result_paths']['evaluations'], f'writer_{run_or_writer_id}_train_predict_seq.{epoch + 1}.log'))
+            train(train_loader, seq2seq, opt, Path(config['result_paths']['evaluations'],
+                                                   f'writer_{run_or_writer_id}_train_predict_seq.{epoch + 1}.log'))
         else:
-            train_loss = train(train_loader, seq2seq, opt, Path(config['result_paths']['evaluations'], f'run_{run_or_writer_id}_train_predict_seq.{epoch + 1}.log'))
+            train(train_loader, seq2seq, opt, Path(config['result_paths']['evaluations'],
+                                                   f'run_{run_or_writer_id}_train_predict_seq.{epoch + 1}.log'))
         scheduler.step()
 
     result_folder = 'iam' if iam else 'runs'
@@ -97,7 +99,7 @@ def test_images(labels_file, image_folder, model_path, prediction_file_prefix):
     test_loader = get_data_loader(labels_file, image_folder)
     seq2seq = init_s2s_model(model_path)
     prediction_log_file = Path(config['result_paths']['evaluations'], f'{prediction_file_prefix}test_predict_seq.log')
-    test_loss = test(test_loader, seq2seq, prediction_log_file)
+    test(test_loader, seq2seq, prediction_log_file)
     cer = calc_cer(labels_file, prediction_log_file)
     print(f'CER of {model_path}: {cer}')
 

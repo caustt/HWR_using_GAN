@@ -14,14 +14,16 @@ More information about the models used can be found here:
 
 ## Installation
 
-The necessary dependencies can be installed with `pip install -r requirements.txt`. This project runs with `python 3.8`.
+The necessary dependencies can be installed with `pip install -r requirements.txt`. This project runs with `python 3.8`.  
+For testing the models and calculating the CER, `gawk` has to be installed: `apt install gawk`.
 
 ## Pretrained Models
 Pretrained models for both the HWR and the GAN are part of this repository and can be downloaded via git-lfs. 
-Simply install git-lfs and run `git lfs pull`.
+Simply install git-lfs and run `git lfs pull`. (Don't forget to run `git lfs install` if you're using git-lfs for the first time).  
 Other models can also be used but need to be referenced in the `config.yaml`.
 ## Usage
 The `synthesized_training.py` script starts the pipeline. By default, it expects input images in the `input_images` folder.
+
 One can also optionally test the trained model. 
 For doing this, put test images in the default `test_images` folder and also a labels.txt file for these images that looks like this:
 ```
@@ -31,10 +33,12 @@ test_img_2.png world
 Afterwards the pipeline can be started with `python3 synthesized_training.py -t`
 
 If writers of the IAM dataset should be trained, the IAM words directory needs to be referenced in the `config.yaml` file.
+It expects the IAM dataset in a "flat form", i.e, not in the standard directory structure from the original dataset zip file but all images directly in the referenced directory.  
 Then a given writer can be trained with `python3 synthesized_training.py --iam <Writer_ID>`. 
+The writer id is a three-digit number that from 000 to around 650.  
 Testing can again be executed with the `-t` flag. 
 Testing is done on all images of this specific writer in the IAM dataset.
-The number of images to be synthesized can be adapted with the `--n_syhnthezised_images` flag.
+The number of images to be synthesized can be adapted with the `--n_generated_images` flag.
 
 
 ## Folder structure 
